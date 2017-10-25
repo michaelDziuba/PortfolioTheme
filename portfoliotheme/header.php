@@ -23,6 +23,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lora:700" rel="stylesheet">
 </head>
 <body <?php body_class(); ?>>
+<div id="container">
 <div class="blog-masthead">
     <div id="header-image">
         <a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">

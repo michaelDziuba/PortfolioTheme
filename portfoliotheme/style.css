@@ -11,8 +11,10 @@ Tags: portfolio, bootstrap
  * Globals
  */
 html, body {
-  margin: 0; padding: 0;
+  margin: 0; padding: 0; width: 100%; height: 100%;
 }
+
+
 
 @font-face {
     font-family: 'lorabold';
@@ -26,9 +28,13 @@ html, body {
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #555;
-  overflow-y: scroll;
-  overflow-x: hidden;
+}
 
+
+div#container{
+  width: 100%;
+  position: absolute;
+  overflow-x: hidden;
 }
 
 h1, .h1,
@@ -61,15 +67,21 @@ h1#header{
   padding: 0;
   height: 0;
   position: relative;
-  top: -130px;
+  top: -200px;
   text-align: center;
-  color: black;
-  -webkit-text-fill-color: white;
+  color: white;
+  -webkit-text-fill-color: orange;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
-  font-size: 20pt;
+  -webkit-text-fill-color: orange;
+  -webkit-filter: drop-shadow(8px 8px 10px red); /* Safari 6.0 - 9.0 */
+  filter: drop-shadow(8px 8px 10px red);
+  font-size: 60pt;
   font-family: 'Lora', serif;
 }
+
+
+
 
 img#sea {
   width: 100%;
@@ -313,6 +325,7 @@ nav .pager {
 .nav-menu-container {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: bolder;
+  font-size: 12pt;
   width: 100%;
   background: -webkit-linear-gradient(#2C73D2, #56A5EC, #2C73D2); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(#2C73D2, #56A5EC, #2C73D2); /* For Opera 11.1 to 12.0 */
@@ -325,13 +338,24 @@ button .dashicons {
   color: deepskyblue;
 }
 
+@media screen and (max-width: 1000px) {
+  h1#header{
+    top: -150px;
+    font-size: 36pt;
+  }
+}
+
+
 /*CSS to use on mobile devices*/
 @media screen and (max-width: 600px) {
 
- 
+ .fixed-to-top{
+   position: relative;
+ }
+
  h1#header{
-    top: -70px;
-   font-size: 16pt;
+    top: -90px;
+   font-size: 26pt;
   }
 
   .blog-post-title{
@@ -397,7 +421,7 @@ button .dashicons {
   .main-navigation ul.nav-menu.toggled-on,
   .menu-toggle {
     display: inline-block;
-    color: black;
+    color: deepskyblue;
   }
 
   .blog-nav .active {
@@ -405,10 +429,31 @@ button .dashicons {
   }
 }
 
+@media screen and (max-width: 500px) {
+  h1#header{
+    font-size: 18pt;
+    top: -70px;
+  }
+
+}
+
 
 
 /*CSS to use on non-mobile devices*/
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 601px) {
+
+  .fixed-to-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 100;
+  }
+
+  .add-margin-bottom {
+    margin-bottom: 45px;
+  }
 
   .nav-menu-container  ul, li{
     display: inline;
@@ -492,17 +537,7 @@ button .dashicons {
 
 
 
-.fixed-to-top {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 100;
-}
 
-.add-margin-bottom {
-  margin-bottom: 45px;
-}
 
 
 .listview-posts {
